@@ -1,4 +1,9 @@
 %Harrington Model - note name change to coreFile_DISC
+%Turn Drug on by commenting the equation corresponding to it being active
+%Toco = dsdt(	5	,1) and R3
+%Narc = R6
+%Cele = dsdt(	6	,1)
+
 function dsdt = coreFile_DISC(t,y,params, P)
 
 DISC    = y(1);
@@ -96,11 +101,12 @@ beta = params(61,1);
 
 R1	=	k1*DISC*C8 ;%V1
 R2	=	k2*C3a*C8 ;%V2
-R3	=	Toco +k3*C8a*C3;%V3 Tocopheryloxybutyrate on
-%R3	=	k3*C8a*C3;%V3 Tocopheryloxybutyrate 1/2
+%R3	=	Toco +k3*C8a*C3;%V3 Tocopheryloxybutyrate on
+R3	=	k3*C8a*C3;%V3 Tocopheryloxybutyrate 1/2 off
 R4	=	k4*C3a*XIAP - k4r*C3aXIAP; %V4 
 R5	=	k5*C3a*XIAP; %V5	
-R6	=	k6*C8a*BAR - k6r*C8aBAR; %V6 Narciclasine
+%R6	=	k6*C8a*BAR - (1+Narc)*k6r*C8aBAR; %V6 Narciclasine on
+R6	=	k6*C8a*BAR - k6r*C8aBAR; %V6 Narciclasine off
 R7	=	k7*C8a*Bid; %V7
 R8	=	k8*tBid_Bax*Cytc; %V8
 R9	=	k9*tBid_Bax*SMAC;	%V9
@@ -111,18 +117,16 @@ R13	=	k13*C9a*C3; %V13
 R14	=	k14*C9a*XIAP - k14r*C9aXIAP;%V14
 
 
-%[rss, lss, fDISC] = compute_fDISC(FasL0, FasR0, KDisc)
-%[rss, lss, ftBidBax] = compute_ftBidBax(tBid, Bax0, KtBidBax)
-
 
 %UPDATE DISC and  Apop with impoorteed function
 dsdt(	1	,1)	= dDISC*fDISC - DISC; %DISC 
 dsdt(	2	,1)	= -R1-R2+sC8-dC8*C8; %C8
 dsdt(	3	,1)	= R1+R2-R6-dC8a*C8a; %C8a
 dsdt(	4	,1)	= -R3-R13+sC3-dC3*C3; %C3
-%dsdt(	5	,1)	= R3 -R4 +R13 - dC3a*C3a;%C3a Tocopheryloxybutyrate 2/2
-dsdt(	5	,1)	= R3 -R4 +R13+ Toco*exp(-t/2e4) - (beta*dC3a)*C3a; %C3a Tocopheryloxybutyrate on
+dsdt(	5	,1)	= R3 -R4 +R13 - dC3a*C3a;%C3a Tocopheryloxybutyrate 2/2
+%dsdt(	5	,1)	= R3 -R4 +R13+ Toco*exp(-t/2e4) - (beta*dC3a)*C3a; %C3a Tocopheryloxybutyrate on
 dsdt(	6	,1)	= -R4 - R5 - R10 - R14 - dXIAP*XIAP + sXIAP; %XIAP Celecoxib
+%dsdt(	6	,1)	= Cele*(-R4 - R5 - R10 - R14 - dXIAP*XIAP) + sXIAP; %XIAP Cele on
 dsdt(	7	,1)	= R4 - dC3aXIAP*C3aXIAP; %C3aXIAP
 dsdt(	8	,1)	=  -R6 + sBAR - dBAR*BAR; %BAR
 dsdt(	9	,1)	= R6 - dC8aBAR*C8aBAR; %C8aBAR
