@@ -34,6 +34,5 @@ end
 % but if Apaf (current) differs from Apaf0 you'd include it. Here assume a0 = 1
 a0 = 1;
 fApop = a0 * g;
-fprintf('fApop = %g\n', fApop);
 
 end
