@@ -58,7 +58,7 @@ params = [
     0          % 55 placeholder for fDISC (filled below)
     0          % 56 placeholder for ftBidBax
     0          % 57 placeholder for fApop (baseline)    
-    0;%9e-3         %Tocopheryloxybutyrate -must turn on with = 1e-3(on) =0(off)
+    0;%9e-3         %Tocopheryloxybutyrate -must turn on with = 9e-3(on) =0(off)
     0;%9         %Narciclasine = 5(on) =0(off)
     1;%9           %Celecoxib  = 5(on) =0(off)
     1;%10          %beta WITH Toco (for bell shape) = 10(on) =1(off)
