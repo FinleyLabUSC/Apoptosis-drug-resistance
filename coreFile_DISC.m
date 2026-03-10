@@ -144,10 +144,6 @@ dsdt(  20   ,1)= R11 + R12 - R14 - dC9a*C9a;%C9a
 dsdt(  21   ,1)= R14 - dC9aXIAP*C9aXIAP;%C9aXIAP
 
 
-% netFlux = R3 - R4 + R13 - dC3a*C3a;
-% if mod(round(t),5000)==0
-%     fprintf('t=%g  netFlux=%g\n',t,netFlux);
-% end
 
 
 return
