@@ -94,10 +94,8 @@ else
     %saved inside fit_fApop_params already
 end
 
-% compute a baseline fApop using initial Cytc* = (use initial Cytc from model or a user value)
-% If you have an initial Cytc value as a parameter, substitute here. I'll use Cytc* = params(24) (sCytC) as a placeholder
-% but more correctly you might want to use Cytc initial condition from y0
-Cytc_star_guess = 100; % placeholder; if you have a baseline Cytc* put it here
+% compute a baseline fApop using initial Cytc* = (use initial Cytc from model)
+Cytc_star_guess = 100; 
 Apaf0 = params(53);
 fApop0 = compute_fApop(Apaf0, Cytc_star_guess, lambda, P);
 params(57) = fApop0;
