@@ -48,7 +48,7 @@ params = [
     6.5e-5     % 45 dC9
     9.667e-5   % 46 dC9a
     2.883e-4   % 47 dC9aXIAP
-    2         % 48 FasL0  (also used as tBid in ftBidBax)
+    2         % 48 FasL0 
     10         % 49 FasR0
     1.032      % 50 KDisc
     83.33      % 51 Bax0
