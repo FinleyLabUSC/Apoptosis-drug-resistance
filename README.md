@@ -10,3 +10,5 @@ These fitted parameters are used to produce the main results of the manuscript:
 - Figure 6: "run_model_best_params_withTreatment.m"
 - Figures 7 and 8: "run_model_best_params_VaryDrugStrength.m"
 - Figures 9 and 10: run_model_best_params_TreatmentHeterogeneity_AllDrugs.m"
+
+The reaction rates and ordinary differential equations for the model are given in "coreFile_DISC.m".
