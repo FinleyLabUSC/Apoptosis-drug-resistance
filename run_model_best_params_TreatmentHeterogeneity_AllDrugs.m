@@ -1,5 +1,3 @@
-%% Figures 9 and 10
-
 rng(0); % to get reproducible random number sequence
 
 % ===============================
@@ -103,7 +101,7 @@ icIdx    = [2 4 19];
 params(paramIdx) = bestSet(1:length(paramIdx));
 y0(icIdx)        = bestSet(length(paramIdx)+1:end);
 
-%% Simulate results for Figure 9
+%% Simulate results for Figure 7
 
 % Time span
 tspan = [0 172800]; %seconds timescale consistent with Harrington's params
@@ -172,7 +170,7 @@ params([toco_idx narc_idx cele_idx tocoBeta_idx]) = noDrug_doses;
 C3a_max_noDrug_norm = C3a_max_noDrug./ mean(C3a_max_noDrug,1);   % fold-change = 1 for baseline
 C3a_max_combo_norm  = C3a_max_combo./ mean(C3a_max_noDrug,1);
 
-%% Figure 9: Plot paired boxplots
+%% Figure 7: Plot paired boxplots
 
 % Prepare boxplot data
 % -----------------------------
@@ -261,7 +259,7 @@ for p = 1:nProteins
     fprintf('%s: p = %.3g, h = %d\n', y0_names{p}, p_ks, h_ks);
 end
 
-%% Simulate results for Figure 10
+%% Simulate results for Figure 8
 
 % Heterogeneous population
 %==============================
@@ -415,7 +413,7 @@ for c = 1:nCells
 end
 hold off;
 
-%% Figure S6
+%% Figure S7
 
 % Make boxplot
 C3a_max_hetero = [C3a_max_base; C3a_max_withDrug];
@@ -474,7 +472,7 @@ fprintf('Kolmogorov-Smirnov tests (No drug vs Combo therapy):\n');
 [h_ks, p_ks] = kstest2(C3a_max_hetero(1,:), C3a_max_hetero(2,:))
 
 
-%% Figure 10, panel A
+%% Figure 8, panel A
 
 % Scatter plot (initial C3 vs Max C3a)
 figure;
@@ -532,7 +530,7 @@ greenMap = [map1; map2];
 colormap(greenMap)
 
 
-%% Figure 10, panel B
+%% Figure 8, panel B
 
 % Scatter plot for initial conditions vs C3a max with treatment
 % C3 vs XIAP and BAR vs XIAP
@@ -656,7 +654,7 @@ for i = 1:5
 end
 
 
-%% Figure 10, panel C
+%% Figure 8, panel C
 
 % Select cells with  C3a above threshold
 above_threshold_idx = [];
