@@ -1,4 +1,4 @@
-%% Figures 7 and 8 - vary drug strength
+%% Figures 6 and 7A - vary drug strength
 
 %% ===============================
 % Base parameter vector
@@ -464,8 +464,6 @@ for d = 1:3
     hold off
 end
 
-
-%% Figure 10
 
 % Max C3a Range Across Drug Treatments (Normalized to No Drug Case) ---
 
