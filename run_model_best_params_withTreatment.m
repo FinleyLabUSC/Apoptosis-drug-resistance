@@ -1,4 +1,4 @@
-%% Figure 6 - PSO Fits
+%% Figure 5 - PSO Fits
 
 % ===============================
 % Base parameter vector
@@ -409,7 +409,6 @@ params(53)=1; %turn off drug
 
 
 %% --- PSO predictions with experimental points ---
-% Figure 6
 
 % Tocopherylbutyrate 
 
